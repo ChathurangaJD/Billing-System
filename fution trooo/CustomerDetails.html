@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Customer Details</title>
+  <style>
+    .search-bar {
+      display: inline-flex;
+      align-items: center;
+      height: 70px; 
+      border: 5px solid #28b423;
+      border-radius: 4px;
+      padding: 0 10px;
+    }
+    .search-bar input[type="text"] {
+      flex: 1;
+      border: none;
+      outline: none;
+    }
+  </style>
+</head>
+<body background="StoreImage.jpg">
+ <Center> <h1>Insert Customer details</h1>
+  
+  <form method="GET" action="Insertcustomer.php">
+    <div class="search-bar"><label style="color: rgb(23, 15, 56);font-size: 30px;"for="name">Name:</label>
+    <input style="width: 500px;"  type="text" name="name" placeholder="Enter Customer Name" required></div><br><br>
+    
+    <blockquote style="margin-right: 210px;"><div class="search-bar"><label style="color: rgb(23, 15, 56);font-size: 30px;" for="Contact no">Contact no:</label>
+    <input style="width: 300px;"  type="text" name="telNo" placeholder="Enter Customer contact" required></div></blockquote><br><br>
+    
+    <div class="search-bar"><label style="color: rgb(23, 15, 56);font-size: 30px;" for="Address">Address:</label>
+    <input style="width: 500px;"  type="text"  name="address" placeholder="Enter Customer address" required></div><br><br>
+
+    <label style="color: rgb(23, 15, 56);font-size: 30px;" for="dateInput">Select a date:</label>
+    <input type="date" name="date" placeholder="yyyy-mm-dd" value="">
+    
+    <button type="submit" ahref="House of Curtains.html">Submit</button>
+  </form></Center>
+</body>
+</html>

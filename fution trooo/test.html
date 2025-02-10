@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Order Tracking</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            width: 500px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .form-group {
+            margin-bottom: 10px;
+        }
+        .form-group label {
+            display: block;
+            font-weight: bold;
+        }
+        .form-group input[type="text"] {
+            width: 100%;
+            padding: 5px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+        .form-group input[type="submit"] {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .result {
+            margin-top: 20px;
+        }
+        .result label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        .result span {
+            font-weight: normal;
+        }
+    </style>
+    <script>
+        function trackOrder() {
+            var orderNumber = document.getElementById("order-number").value;
+    
+            var orderStatus = "Shipped";
+            
+        
+            var resultElement = document.getElementById("result");
+            resultElement.innerHTML = "<label>Order Number:</label><span>" + orderNumber + "</span><br><label>Order Status:</label><span>" + orderStatus + "</span>";
+        }
+    </script>
+</head>
+<body background="StoreImage.jpg">
+    <div class="container">
+        <h2>Order Tracking</h2>
+        <div class="form-group">
+            <label for="receiptNo">Receipt Number:</label>
+            <input type="receiptNo" id="receiptNo" name="receiptNo" required>
+        </div>
+        <div class="form-group">
+            <input type="submit" value="Track Order" onclick="trackOrder()">
+        </div>
+        <div class="result" id="result"></div>
+    </div>
+</body>
+</html>

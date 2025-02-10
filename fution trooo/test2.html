@@ -1,0 +1,65 @@
+<?php
+// Database connection settings
+$host = "localhost";
+$username = "your_username";
+$password = "your_password";
+$dbname = "your_database_name";
+
+// Create a database connection
+$conn = new mysqli($host, $username, $password, $dbname);
+
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+// Query to retrieve data
+$sql = "SELECT * FROM your_table_name";
+$result = $conn->query($sql);
+?>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Retrieve Data</title>
+</head>
+<body>
+    <h1>Data from Database</h1>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <!-- Add more columns as needed -->
+        </tr>
+        <?php
+        if ($result->num_rows > 0) {
+            while ($row = $result->fetch_assoc()) {
+                echo "<tr>";
+                echo "<td>" . $row["id"] . "</td>";
+                echo "<td>" . $row["name"] . "</td>";
+                // Add more columns as needed
+                echo "</tr>";
+            }
+        } else {
+            echo "No data found";
+        }
+        $conn->close();
+        ?>
+    </table>
+</body>
+</html>
+<div class="result" id="result"></div>
+        <br><br><a class="button" href="OrderUpdate.html" style="text-align: right;" >Update order status</a>
+    </div>
+</form>
+
+
+
+<div id="searchResultsContainer">
+   
+    <center><b>
+     <p style="color: rgb(105, 21, 91);font-size: 30px;">Material name<div class="box"> $name</p></div><br><br>
+      <p style="color: rgb(105, 21, 91);font-size: 30px;">Number of rolls remaining</p><div class="box"><p>Result 2</p></div><br><br>
+      <p style="color: rgb(105, 21, 91);font-size: 30px;">Remaining feets in the using roll</p><div class="box"><p>Result 3</p></div>
+    </center>
+    </div>

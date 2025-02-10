@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Store</title>
+  <style>
+    .search-bar {
+      display: inline-flex;
+      align-items: center;
+      height: 70px; 
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      padding: 0 10px;
+    }
+    .search-bar input[type="text"] {
+      flex: 1;
+      border: none;
+      outline: none;
+    }
+  </style>
+  
+</head>
+<body background="StoreImage.jpg">
+    <Center><h1 style="color: yellow;font-size: 80px;">Store</h1></Center>
+    <center><p style=" font-size: 40px;">Enter the material code</p></center>
+  <center><form method="get" action="StoreResults.php"> <div class="search-bar">
+    <input style="width: 300px;"  type="text" name="code" placeholder="input code"></div><br><br>
+    <div class="search-bar"><input style="width: 300px;" type="text"  placeholder="input the length needed"></div><br><br>
+    <button type="submit">Search</button>
+  </form></center>
+</body>
+</html>

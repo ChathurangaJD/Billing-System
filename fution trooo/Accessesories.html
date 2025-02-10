@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Accessesories</title>
+    <style>
+        .container {
+            width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 15px solid #ccc;
+            border-radius: 5px;
+        }
+        .form-group {
+            margin-bottom: 10px;
+        }
+        .form-group label {
+            display: block;
+            font-weight: bold;
+        }
+        .form-group input {
+            width: 100%;
+            padding: 5px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+        .form-group select {
+            width: 100%;
+            padding: 5px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+        .form-group input[type="submit"] {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body background="pback.jpg">
+    <br><br><br><br><br><br>
+    <div class="container">
+        <h2  style="color: rgb(0, 255, 21);">Accessesories</h2>
+        <form action="" method="post">
+            <div class="form-group">
+                <label for="name">Receipt No:</label>
+                <input type="receiptno" id="receiptNo" name="receiptno" required>
+            </div>
+
+            <div class="form-group">
+                <label for="barType">Bar Type:</label>
+                <select id="file-type" name="file-type" required>
+                    <option value="">Select a bar type</option>
+                    <option value="wood">Wood</option>
+                    <option value="aluminium">Aluminium</option>
+                    <br><label for="Amount">Bar length:</label>
+                    <input type="number" id="length" name="length" required><br><br>
+                </select><br><br>
+
+                <label for="iyletType">Iylet Type:</label>
+                <select id="iyletType" name="iyletType" required>
+                    <option value="">Select a Iylet type</option>
+                    <option value="normal">Normal</option>
+                    <option value="flower">Flower</option>
+                    <br><label for="Amount">Iylet amount:</label>
+                    <input type="number" id="amount" name="amount" required><br><br>
+                </select><br><br>
+                
+                <label for="bracketType">Bracket Type:</label>
+                <select id="bracketType" name="bracketType" required>
+                    <option value="">Select a Bracket type</option>
+                    <option value="type1">Type 1</option>
+                    <option value="type2">Type 2</option>
+                    <option value="type3">Type 3</option>
+                    <br><label for="bracket">Bracket amounts:</label>
+                    <input type="number" id="telNo" name="tel" required><br><br>
+                </select><br><br>
+
+                <label for="endcupType">Endcup Type:</label>
+                <select id="endcupType" name="endcupType" required>
+                    <option value="">Select a Endcup type</option>
+                    <option value="type1">Type 1</option>
+                    <option value="type2">Type 2</option>
+                    <option value="type3">Type 3</option>
+                    <option value="type4">Type 4</option>
+                    <br><label for="customerContact">Endcup amount:</label>
+                    <input type="number" id="telNo" name="tel" required><br><br>
+                </select><br><br>
+ 
+            </div>
+           
+            <div class="form-group">
+                <input type="submit" value="Submit">
+            </div>
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Print Receipt</title>
+  <style>
+     .container {
+            position: relative;
+            display: inline-block
+        }
+        .background-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: -1;
+        }
+
+        .text {
+            position: relative;
+            z-index: 1;
+        }
+        .highlight {
+            color: red; 
+        }
+        .right-align {
+            text-align: right;
+        }
+       
+    @media print {
+      
+      .no-print {
+                display: none;
+            }
+      .receipt {
+        border: 1px solid rgb(102, 102, 128);
+        padding: 20px;
+        margin: 20px;
+        font-family: Arial, sans-serif; 
+            font-size: 40px; 
+            font-weight: bold; 
+            color: #45ccd1; 
+      
+            }
+            .hr-line {
+                display: block; 
+                border: none;
+                border-top: 1px solid black; 
+                margin: 10px 0; 
+            }
+            table {
+                border-collapse: collapse;
+                width: 100%;
+            }
+
+            th, td {
+                border: 1px solid black;
+                padding: 8px;
+            }
+    }
+  </style>
+</head>
+<body background="StoreImage.jpg">
+  <div class="container">
+    <img class="background-image" src='' alt=""></div>
+  
+    <div class="no-print">
+      <h1 style="color: yellow;font-size: 80px;">Print Receipt</h1>
+      
+      <form id="receiptForm">
+    <label for="receiptNo">Receipt No:</label>
+    <input type="text" id="receiptNo" name="receiptNo" required><br><br>
+
+    <label for="customerName">Customer Name:</label>
+    <input type="text" id="customerName" name="customerName" required><br><br>
+    
+    <label for="customerContact">Customer Contact:</label>
+    <input type="text" id="telNo" name="tel" required><br><br>
+    
+    <h2>Items</h2>
+    <div id="itemsContainer">
+      <div class="item">
+        <label for="itemName1">Item Name:</label>
+        <input type="text" id="itemName1" name="itemName1" required>
+        
+        <label for="itemPrice1">Item Price:</label>
+        <input type="number" id="itemPrice1" name="itemPrice1" step="0.01" required>
+      </div>
+    </div>
+    
+    <button type="button" onclick="addItem()">Add Item</button><br><br>
+    
+    <label for="discount">Discount (%):</label>
+    <input type="number" id="discount" name="discount" min="0" max="100" step="1" value="0"><br><br>
+    
+    <button type="button" onclick="printReceipt()">Print Receipt</button>
+  </form></div>
+  <div id="receiptContainer"></div>
+
+
+  <script>
+    var itemCount = 1;
+
+    function addItem() {
+      itemCount++;
+
+      var itemsContainer = document.getElementById("itemsContainer");
+
+      var itemDiv = document.createElement("div");
+      itemDiv.className = "item";
+
+      itemDiv.innerHTML = `
+        <label for="itemName${itemCount}">Item Name:</label>
+        <input type="text" id="itemName${itemCount}" name="itemName${itemCount}" required>
+        
+        <label for="itemPrice${itemCount}">Item Price:</label>
+        <input type="number" id="itemPrice${itemCount}" name="itemPrice${itemCount}" step="0.01" required>
+      `;
+
+      itemsContainer.appendChild(itemDiv);
+    }
+
+    function printReceipt() {
+      var receiptNo = document.getElementById("receiptNo").value;
+      var customerName = document.getElementById("customerName").value;
+      var discount = document.getElementById("discount").value;
+
+      var items = document.getElementsByClassName("item");
+      var totalAmount = 0;
+
+      var itemDetails = "";
+      var itempriced="";
+
+      for (var i = 0; i < items.length; i++) {
+        var itemName = document.getElementById("itemName" + (i + 1)).value;
+        var itemPrice = parseFloat(document.getElementById("itemPrice" + (i + 1)).value);
+         
+
+        itemDetails += "<p>" + itemName +  "</p>";
+        itempriced +="<p>" + "Rs."  + itemPrice.toFixed(2) + "</p>";
+
+
+        totalAmount += itemPrice;
+
+      }
+
+      var discountAmount = (totalAmount * (discount / 100));
+      var netAmount = totalAmount - discountAmount;
+
+      var receiptHTML = `
+      
+          <h1 style="color:rgb(102, 102, 128); font-family: Arial, sans-serif;">House <span class="highlight">of</span> Curtains</h1>
+          <h1 class="right-align" style="color:rgb(102, 102, 128); font-family: Arial, sans-serif;">Receipt</h1>
+          
+            <p>_________________________________________________________________________________________</p>
+          <p style="color:rgb(102, 102, 128); font-family: Arial, sans-serif;font-size:18px;">Receipt NO: ${receiptNo}</p>
+          <p style="color:rgb(102, 102, 128); font-family: Arial, sans-serif;font-size:18px;">Customer: ${customerName}</p>
+          <p>_________________________________________________________________________________________</p>
+          <h3>Items:</h3>
+          <table class="right-align" style="font-size:18px;" >
+          <tr><th>${itemDetails}</th><th></th><th> ${itempriced}</th></tr></table>
+          
+        <p>_________________________________________________________________________________________</p>
+        <table class="right-align" style="font-size:20px;" >
+          <tr><th> Sub Amount: </th><td></td><td> Rs.${totalAmount.toFixed(2)}</td></tr>
+          <tr><th>Discount:</th><td></td><td> ${discount}%</td></tr>
+          <tr><th>Discount Amount:</th><td></td><td> Rs.${discountAmount.toFixed(2)}</td></tr>
+          <tr><th>Net Amount:</th><td></td><td> Rs.${netAmount.toFixed(2)}</td></tr></table>
+      
+      `;
+
+      document.getElementById("receiptContainer").innerHTML = receiptHTML;
+
+      window.print();
+    }
+  </script>
+</body>
+</html>

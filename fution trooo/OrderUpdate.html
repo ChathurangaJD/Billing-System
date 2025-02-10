@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Order Tracking</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            width: 500px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 10px solid #ccc;
+            border-radius: 5px;
+        }
+        .form-group {
+            margin-bottom: 10px;
+        }
+        .form-group label {
+            display: block;
+            font-weight: bold;
+        }
+        .form-group input[type="text"] {
+            width: 100%;
+            padding: 5px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+        .form-group input[type="submit"] {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .result {
+            margin-top: 20px;
+        }
+        .result label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        .result span {
+            font-weight: normal;
+        }
+    </style>
+</head>
+<body background="pback2.jpg">
+    <br><br><br><br><br><br>
+    <div class="container">
+        <h2 style="color: rgb(0, 255, 21);">Order Update</h2>
+        <form method="GET" action="UpdateOrder.php">
+        <div class="form-group">
+            <label for="receiptNo">Receipt Number:</label>
+            <input type="text" id="receiptNo" name="receiptNo" required>
+            
+            <label for="OrderStatus">Order Status:</label>
+            <select id="OrderStatus" name="orderStatus" required>
+                <option value="">Select Order Status</option>
+                <option value="Cutting in progress">Cutting in progress</option>
+                <option value="Deliverd to sewing">Deliverd to sewing</option>
+                <option value="Sewing in progress">Sewing in progress</option>
+                <option value="Sewing Complete">Sewing Complete</option>
+                <option value="Deliverd to shop">Deliverd to shop</option>
+                <option value="Order Complete">Order Complete</option>
+            </select><br><br>
+        </div>
+        
+        <div class="form-group">
+            <button type="submit" ahref="House of Curtains.html">Update</button>
+        </div>
+
+    </form>
+</body>
+</html>
